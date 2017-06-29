@@ -108,4 +108,29 @@ function wpa3396_page_template( $template )
     }
     return $template;
 }
+/* Add Image Upload to Series Taxonomy */
 
+// Add Upload fields to "Add New Taxonomy" form
+function add_product_category_image_field() {
+	// this will add the custom meta field to the add new term page
+	?>
+	<div class="form-field">
+		<label for="category_image"><?php _e( 'Product Category Image:'); ?></label>
+		<input type="text" name="category_image[image]" id="category_image[image]" class="category-image" value="<?php echo $categoryimage; ?>">
+		<input class="upload_image_button button" name="_add_category_image" id="_add_category_image" type="button" value="Select/Upload Image" />
+		<script>
+			jQuery(document).ready(function() {
+				jQuery('#_add_category_image').click(function() {
+					wp.media.editor.send.attachment = function(props, attachment) {
+						jQuery('.category-image').val(attachment.url);
+					}
+					wp.media.editor.open(this);
+					return false;
+				});
+			});
+		</script>
+	</div>
+<?php
+wp_enqueue_media();
+}
+add_action( 'product-category_add_form_fields', 'add_product_category_image_field', 10, 2 );
