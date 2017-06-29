@@ -19,9 +19,9 @@ Different listing view option of catalog are available on the frontend for user.
 * Individual Category and sub category pages along with their products.
 * Includes the pagination.
 
-## Contributors
+## Authors
 * [Avinash Singh Rathi](https://github.com/avinash-singh-rathi)
-* Sandeep Kumar
+* [Sandeep Kumar Sahu](https://github.com/sandeep-sahu)
 
 ### Note
 The Plugin is under development.
